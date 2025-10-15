@@ -2,6 +2,9 @@ package com.T2.LP2_T2_SANTOS_ADEMIR.model;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter @Setter
 @Table(name="tbl_orden_compra")
+@DynamicInsert
 
 public class OrdenCompra {
 	
@@ -35,12 +39,14 @@ public class OrdenCompra {
 	private String direccionEntrega;
 	
 	@Column(name="fecha_entrega")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecEntrega;
 	
 	@Column(name="estado")
 	private String estado;
 	
 	public String textoEstado() {
+		
 		switch (estado) {
 		case "P": { return "Pendiente";}
 		case "C": { return "Completado";}

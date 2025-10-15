@@ -17,25 +17,26 @@
 				<h1 class="card-title text-center">Orden de compra nueva</h1>
 				<div class="row d-flex justify-content-center">
 					<div class="col-md-6">
-						<form class="row g-2" method="post" novalidate>
+						<form class="row g-2" method="post" novalidate th:object="${orden}" th:action="@{/orden/registrar}">
 							<div class="col-md-6 position-relative">
 								<label for="proveedor">Proveedor</label>
-								<select class="form-select" required>
+								<select class="form-select" required th:field="*{proveedor}">
 									<option value="">--Seleccione--</option>
+									<option th:each="item: ${lstProveedor}" th:value="${item.idProveedor}" th:text="${item.razonSocial}"></option>
 								</select>
 							</div>
 							<div class="col-md-6 position-relative">
 								<label for="monto">Monto</label>
-								<input type="number" class="form-control" step="0.01" placeholder="0.00" required>
+								<input type="number" th:field="*{monto}" class="form-control" step="0.01" placeholder="0.00" required>
 							</div>
 							<div class="col-md-12 position-relative">
 								<label for="direccionEntrega">Dirección de entrega</label>
-								<input type="text" class="form-control" placeholder="Ingrese una dirección de entrega"
+								<input type="text" th:field="*{direccionEntrega}" class="form-control" placeholder="Ingrese una dirección de entrega"
 									required>
 							</div>
 							<div class="col-md-6 position-relative">
 								<label for="fechaEntrega">Fecha de entrega</label>
-								<input type="date" class="form-control" required>
+								<input type="date" th:field="*{fecEntrega}" class="form-control" required>
 							</div>
 							<div class="col-md-12 d-flex justify-content-between">
 								<!-- Botón Regresar -->

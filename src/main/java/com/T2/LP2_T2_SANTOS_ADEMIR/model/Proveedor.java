@@ -2,6 +2,8 @@ package com.T2.LP2_T2_SANTOS_ADEMIR.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
