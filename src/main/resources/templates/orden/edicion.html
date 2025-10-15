@@ -18,6 +18,8 @@
 				<div class="row d-flex justify-content-center">
 					<div class="col-md-6">
 						<form class="row g-2" method="post" novalidate th:object="${orden}" th:action="@{/orden/guardar}">
+							
+							<input class="d-none" th:field="*{orden}">
 							<div class="col-md-6 position-relative">
 								<label for="proveedor">Proveedor</label>
 								<select class="form-select" required th:field="*{proveedor}">

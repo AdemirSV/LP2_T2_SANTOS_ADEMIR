@@ -54,11 +54,11 @@ public class OrdenController {
 		return "redirect:/orden/listado";
 	}
 	
-	@GetMapping("edicion/{id}")
-	public String edicion(@PathVariable Integer id, Model model) {
-		model.addAttribute("lstProducto",proServ.getAll());
+	@GetMapping("edicion/{orden}")
+	public String edicion(@PathVariable Integer orden, Model model) {
+		model.addAttribute("lstProveedor",proServ.getAll());
 		model.addAttribute("lstOrden",ordenServ.getAll());
-		model.addAttribute("orden", ordenServ.getOne(id));
+		model.addAttribute("orden", ordenServ.getOne(orden));
 		return "orden/edicion";
 	}
 	
