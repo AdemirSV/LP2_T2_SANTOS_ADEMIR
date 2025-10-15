@@ -52,7 +52,7 @@
 							<td th:text="|S/. ${item.monto}|"></td>
 							<td th:text="${item.textoEstado}"></td>
 							<td class="text-center align-middle">
-								<a href="#" class="btn btn-outline-secondary" title="Editar" role="button">
+								<a th:href="@{/orden/edicion/{id}(id=${item.orden})}" class="btn btn-outline-secondary" title="Editar" role="button">
 									<i class="fa-regular fa-pen-to-square"></i>
 								</a>
 							</td>

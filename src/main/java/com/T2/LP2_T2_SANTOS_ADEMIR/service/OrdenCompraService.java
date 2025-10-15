@@ -32,4 +32,20 @@ public class OrdenCompraService {
 			return new ResultadoResponse(false, "Error en InventarioService: "+e.getMessage());
 		}
 	}
+	
+	public OrdenCompra getOne(Integer id) {
+		return ordenCompraRepository.findById(id).orElseThrow();
+	}
+	
+	public ResultadoResponse update(OrdenCompra orden) {
+		try {
+			OrdenCompra ordenRegistrado = ordenCompraRepository.save(orden);
+			
+			String mensaje = String.format("Orden actualizado con ID %s",ordenRegistrado.getOrden());
+			return new ResultadoResponse(true,mensaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultadoResponse(false, "Error en InventarioService: "+e.getMessage());
+		}
+	}
 }
